@@ -9,4 +9,4 @@
 
 ## Early Wireframe:
 
-![](https://imgur.com/PgKvRdk)
+![](https://i.imgur.com/PgKvRdk.png)
