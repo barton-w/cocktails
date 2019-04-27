@@ -2,9 +2,9 @@
 const baseURL = "https://www.thecocktaildb.com/api/json/v1/";
 const guid = "1";  //this can be replaced by an API key should I decide to use premium features of the API
 const randomEndpoint = "/random.php";
-const ingredientEndpoint = "/filter.php?i=";
+const filterEndpoint = "/filter.php?i=";
 
-//function to return an array of alcoholic cocktails from the API
+//function that queries the random endpoint and calls displayCocktail with an array of cocktail details
 const getRandCocktails = (num) => {
   for (let i = 0; i < num; i++) {
     $.ajax({
@@ -26,21 +26,25 @@ const displayCocktail = (obj) => {
   $("#random").append($cocktail);
 }
 
-//function to receive user input from the form, and hit the API's ingredient endpoint
+//function to receive user input from the form, hit the API's filter endpoint, and call getSearchCocktailDetails with 4 random IDs
 const getSearchCocktails = (value, num) => {
   $.ajax({
-    url: baseURL+guid+ingredientEndpoint+value
+    url: baseURL+guid+filterEndpoint+value
   }).then((obj) => {
     const cocktailIdArray = [];
-    //push 4 random cocktails to an array
+    //push 4 random cocktail IDs to an array
     for (let i = 0; i < num; i++) {
       let position = Math.floor(Math.random()*obj.drinks.length);
       cocktailIdArray.push(obj.drinks[position].idDrink);
     };
-    getSearchCocktailDetails(cocktailArray);
+    getSearchCocktailDetails(cocktailIdArray);
   }, (error) => {
     console.log(error);
   });
+};
+
+const getSearchCocktailDetails = (array) => {
+  console.log(array);
 };
 
 //jQuery document ready function
