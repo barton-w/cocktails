@@ -2,15 +2,26 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <script
     src="https://code.jquery.com/jquery-3.4.0.min.js"
     integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
     crossorigin="anonymous"></script>
-    <script src="app.js" charset="utf-8"></script>
+    <script src="app/app.js" charset="utf-8"></script>
     <title>cocktails</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <h1>Find Tonight's Perfect Cocktail</h1>
+    <h2>Enter a spirit to get curated recommendations</h2>
+    <form id="spirit-form">
+      <input type="text" id="spirit" placeholder="Spirit">
+      <input type="submit" id="spirit-submit" value="See Recommendations">
+    </form>
+    <div class="cocktails" id="recommendations">
+    </div>
+    <h2>Browse from a random assortment</h2>
+    <button id="see-more">See More</button>
+    <div class="cocktails" id="random">
+    </div>
   </body>
 </html>
