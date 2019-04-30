@@ -51,20 +51,23 @@ const getSearchCocktailDetails = (array) => {
 //function that gets called by getRandCocktails and getSearchCocktailDetails to display them on the page
 const displayCocktail = (obj, location) => {
   const $cocktail = $("<div>").addClass("cocktail");
-  const $image = $("<img>").attr("src", obj.strDrinkThumb);
+  $cocktail.css("background-image", `url(${obj.strDrinkThumb})`);
   $cocktail.append($("<h3>").text(obj.strDrink));
-  $cocktail.append($image);
-  // $cocktail.append($ingredients);
-  // const $ingredients = $("<ul>").addClass("ingredients");
-  $cocktail.append($("<p>").addClass("instructions").text(`Glass | ${obj.strGlass}`));
+  //create an overlay div to store cocktail details
+  const $overlayDiv = $("<div>").addClass("details").addClass("hide");
+  $overlayDiv.append($("<p>").addClass("ingredient").text(`Glass | ${obj.strGlass}`));
   for (let i = 1; i <= 15; i++) {
     const ingredient = "strIngredient"+i;
     const measure = "strMeasure"+i;
     if (obj[ingredient] !== "" && obj[ingredient] !== null) {
-      $cocktail.append($("<p>").addClass("instructions").text(`${obj[ingredient]} | ${obj[measure]}`));
+      $overlayDiv.append($("<p>").addClass("ingredient").text(`${obj[ingredient]} | ${obj[measure]}`));
     };
   };
-  $cocktail.append($("<p>").addClass("instructions").text(obj.strInstructions));
+  $overlayDiv.append($("<p>").addClass("instructions").text(obj.strInstructions));
+  // $overlayDiv.on("click", (event) => {
+  //   $(event.currentTarget).toggleClass("hide");
+  // });
+  $cocktail.append($overlayDiv);
   $(`#${location}`).append($cocktail);
 };
 
@@ -80,7 +83,7 @@ $(() => {
     event.preventDefault();
   });
 
-  //event listener for the See More button in the #random section
+  //event listener for the See More button
   $("#see-more").on("click", (event) => {
     $("#random").empty();
     getRandCocktails(4);
