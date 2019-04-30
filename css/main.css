@@ -6,4 +6,22 @@
 
 body{
   font-family: "Titillium Web", sans-serif;
+  text-align: center;
+}
+
+.cocktail-section {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.cocktail {
+  max-width: 20%;
+}
+
+.cocktail > img {
+  max-width: 100%;
 }
