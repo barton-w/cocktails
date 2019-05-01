@@ -51,6 +51,7 @@ h2 {
 }
 
 h3 {
+  font-size: 1.4vw;
   color: ghostwhite;
   margin-top: 0;
   background-color: rgba(96,96,96,.5);
@@ -118,7 +119,6 @@ button:hover, #spirit-submit:hover {
 #spirit:focus {
   background-color: rgb(68,170,255);
 }
-
 
 .search {
   margin-bottom: 4%;
@@ -189,13 +189,102 @@ button:hover, #spirit-submit:hover {
 }
 
 @media screen and (max-width: 480px) {
+  h1 {
+   font-size: 18px;
+   margin: 0 auto;
+   color: ghostwhite;
+   padding-top: 2%;
+  }
+
+  h2 {
+    font-size: 14px;
+    margin: 0 auto 2% auto;
+    display: inline-block;
+    color: ghostwhite;
+  }
+
+  h3 {
+    font-size: 14px;
+    color: ghostwhite;
+    margin-top: 0;
+    background-color: rgba(96,96,96,.5);
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    padding: 1%;
+  }
   .cocktail {
     position: relative;
-    width: 46%;
+    width: 42%;
+    margin-bottom: 4%;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 10px;
     filter: saturate(60%);
+  }
+  button {
+    color: ghostwhite;
+    background-color: rgb(98,191,224);
+    border: none;
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+    font-size: 9px;
+    margin: 0 auto 0 2%;
+    padding: 0;
+    cursor: pointer;
+  }
+  #spirit-submit {
+    color: ghostwhite;
+    background-color: rgb(98,191,224);
+    border: none;
+    display: inline-block;
+    width: 120px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+    font-size: 9px;
+    margin: 0 auto 0 1%;
+    padding: 0;
+    cursor: pointer;
+    vertical-align: top;
+  }
+  button:hover, #spirit-submit:hover {
+    background-color: rgb(68,170,255);
+    transition: 1s;
+  }
+  #spirit {
+    width: 120px;
+    height: 30px;
+    outline: none;
+    text-align: center;
+    font-size: 9px;
+    margin: 0 1% 0 auto;
+    padding: 0;
+    vertical-align: top;
+    background-color: rgb(98,191,224);
+    color: ghostwhite;
+    border: none;
+  }
+  #spirit::placeholder {
+    font-size: 9px;
+    text-align: center;
+    color: ghostwhite;
+  }
+  #spirit:focus {
+    background-color: rgb(68,170,255);
+  }
+  .random-nav > h2, .randon-nav > button {
+    vertical-align: top;
+  }
+  .ingredient {
+    font-size: 9px;
+    margin: .5% auto;
+  }
+  .instructions {
+    font-size: 9px;
+    padding: 0 5% 0 5%;
   }
 }
