@@ -1,12 +1,129 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
-/* * {
-  border: 1px solid gold;
-} */
-
-body{
+body {
   font-family: "Titillium Web", sans-serif;
   text-align: center;
+  margin: 0;
+}
+
+.video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -100;
+    filter: grayscale(80%) blur(4px);
+}
+
+.poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .poster {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .poster {
+    width: 300%;
+    left: -100%;
+  }
+}
+
+h1 {
+ font-size: 3.75vw;
+ margin: 0 auto;
+ color: ghostwhite;
+}
+
+h2 {
+  font-size: 1.9vw;
+  margin: 0 auto 1% auto;
+  display: inline-block;
+  color: ghostwhite;
+}
+
+h3 {
+  color: ghostwhite;
+  margin-top: 0;
+  background-color: rgba(96,96,96,.5);
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  padding: 1%;
+}
+
+button {
+  color: ghostwhite;
+  background-color: #606060;
+  border: none;
+  display: inline-block;
+  width: 12vw;
+  height: 5.3vh;
+  outline: none;
+  text-align: center;
+  font-size: 1vw;
+  margin: 0 auto 0 1%;
+  padding: 0;
+  cursor: pointer;
+}
+
+#spirit-submit {
+  color: ghostwhite;
+  background-color: #606060;
+  border: none;
+  display: inline-block;
+  width: 12vw;
+  height: 5.3vh;
+  outline: none;
+  text-align: center;
+  font-size: 1vw;
+  margin: 0 auto 0 .5%;
+  padding: 0;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+/* button:hover, #spirit-submit:hover {
+  border: 2px solid #606060;
+} */
+
+#spirit {
+  width: 12vw;
+  height: 5.3vh;
+  outline: none;
+  text-align: center;
+  font-size: 1.2vw;
+  margin: 0 .5% 0 auto;
+  padding: 0;
+  vertical-align: top;
+  background-color: #606060;
+  color: ghostwhite;
+  border: none;
+}
+
+#spirit::placeholder {
+  font-size: 1vw;
+  text-align: center;
+  color: ghostwhite;
+}
+
+.search {
+  margin-bottom: 4%;
+}
+
+.random-nav {
+  margin: 3% auto 3% auto;
+}
+
+.random-nav > h2, .randon-nav > button {
+  vertical-align: middle;
 }
 
 .cocktail-section {
@@ -25,6 +142,7 @@ body{
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 10px;
+  filter: saturate(65%);
 }
 
 .cocktail:after {
@@ -47,32 +165,20 @@ body{
   padding-top: 15%;
   /* cursor: pointer; */
   opacity: 0;
+  transition: 2s;
 }
 
 .details:hover {
   opacity: 1;
-  transition: 1s;
+  transition: 2s;
 }
 
-/* .hide {
-  opacity: 0;
-} */
-
 .ingredient {
-  font-size: 18px;
+  font-size: 80%;
   margin: 1% auto;
 }
 
 .instructions {
-  font-size: 14px;
+  font-size: 75%;
   padding: 0 5% 0 5%;
-}
-
-h3 {
-  color: white;
-  margin-top: 0;
-  background-color: rgba(96,96,96,.5);
-  border-top-left-radius: 9px;
-  border-top-right-radius: 9px;
-  padding: 1%;
 }

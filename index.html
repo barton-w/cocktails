@@ -11,16 +11,25 @@
     <title>cocktails</title>
   </head>
   <body>
+    <div class="video">
+    <video loop muted autoplay poster="images/cocktail-bar.png" class="poster">
+        <source src="video/cocktails.mp4" type="video/mp4">
+    </video>
+    </div>
     <h1>Find Tonight's Perfect Cocktail</h1>
-    <h2>Enter a spirit to get curated recommendations</h2>
-    <form id="spirit-form">
-      <input type="text" id="spirit" placeholder="Spirit">
-      <input type="submit" id="spirit-submit" value="See Recommendations">
-    </form>
+    <h2>Enter your favorite booze and get curated recommendations</h2>
+    <div class="search">
+      <form id="spirit-form">
+        <input type="text" id="spirit" placeholder="Your Favorite Booze">
+        <input type="submit" id="spirit-submit" value="Get Recommendations">
+      </form>
+    </div>
     <div class="cocktail-section" id="recommendations">
     </div>
-    <h2>Browse from a random assortment</h2>
-    <button id="see-more">See More</button>
+    <div class="random-nav">
+      <h2>Or browse from a random assortment</h2>
+      <button id="see-more">See More</button>
+    </div>
     <div class="cocktail-section" id="random">
     </div>
   </body>

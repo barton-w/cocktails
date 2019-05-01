@@ -54,7 +54,7 @@ const displayCocktail = (obj, location) => {
   $cocktail.css("background-image", `url(${obj.strDrinkThumb})`);
   $cocktail.append($("<h3>").text(obj.strDrink));
   //create an overlay div to store cocktail details
-  const $overlayDiv = $("<div>").addClass("details").addClass("hide");
+  const $overlayDiv = $("<div>").addClass("details");
   $overlayDiv.append($("<p>").addClass("ingredient").text(`Glass | ${obj.strGlass}`));
   for (let i = 1; i <= 15; i++) {
     const ingredient = "strIngredient"+i;
@@ -64,9 +64,6 @@ const displayCocktail = (obj, location) => {
     };
   };
   $overlayDiv.append($("<p>").addClass("instructions").text(obj.strInstructions));
-  // $overlayDiv.on("click", (event) => {
-  //   $(event.currentTarget).toggleClass("hide");
-  // });
   $cocktail.append($overlayDiv);
   $(`#${location}`).append($cocktail);
 };
