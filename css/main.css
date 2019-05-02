@@ -189,24 +189,23 @@ button:hover, #spirit-submit:hover {
 }
 
 @media only screen
-and (max-width: 1000px) {
-/* and (-webkit-device-pixel-ratio: 3) { */
+and (max-width: 900px) {
   h1 {
-   font-size: 72px;
+   font-size: 96px;
    margin: 0 auto;
    color: ghostwhite;
    padding-top: .5%;
   }
 
   h2 {
-    font-size: 40px;
+    font-size: 58px;
     margin: 0 auto 2% auto;
     display: inline-block;
     color: ghostwhite;
   }
 
   h3 {
-    font-size: 32px;
+    font-size: 40px;
     color: ghostwhite;
     margin-top: 0;
     background-color: rgba(96,96,96,.5);
@@ -229,11 +228,11 @@ and (max-width: 1000px) {
     background-color: rgb(98,191,224);
     border: none;
     display: inline-block;
-    width: 350px;
-    height: 60px;
+    width: 500px;
+    height: 100px;
     outline: none;
     text-align: center;
-    font-size: 32px;
+    font-size: 40px;
     margin: 0 auto 0 2%;
     padding: 0;
     cursor: pointer;
@@ -243,43 +242,43 @@ and (max-width: 1000px) {
     background-color: rgb(98,191,224);
     border: none;
     display: inline-block;
-    width: 350px;
-    height: 60px;
+    width: 500px;
+    height: 100px;
     outline: none;
     text-align: center;
-    font-size: 32px;
-    margin: 0 auto 0 1%;
+    font-size: 40px;
+    margin: 8% auto;
     padding: 0;
     cursor: pointer;
     vertical-align: top;
+    display: block;
   }
   button:hover, #spirit-submit:hover {
     background-color: rgb(68,170,255);
     transition: 1s;
+    margin-bottom: 8%;
   }
   #spirit {
-    width: 350px;
-    height: 60px;
+    width: 500px;
+    height: 100px;
     outline: none;
     text-align: center;
-    font-size: 32px;
-    margin: 0 1% 0 auto;
+    font-size: 40px;
+    margin: 8% auto;
     padding: 0;
     vertical-align: top;
     background-color: rgb(98,191,224);
     color: ghostwhite;
     border: none;
+    display: block;
   }
   #spirit::placeholder {
-    font-size: 32px;
+    font-size: 40px;
     text-align: center;
     color: ghostwhite;
   }
   #spirit:focus {
     background-color: rgb(68,170,255);
-  }
-  .random-nav > h2, .randon-nav > button {
-    vertical-align: middle;
   }
   .ingredient {
     font-size: 9px;
@@ -288,5 +287,8 @@ and (max-width: 1000px) {
   .instructions {
     font-size: 9px;
     padding: 0 5% 0 5%;
+  }
+  #random {
+    margin-top: 8%;
   }
 }
