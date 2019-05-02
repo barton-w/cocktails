@@ -189,7 +189,7 @@ button:hover, #spirit-submit:hover {
 }
 
 @media only screen
-and (max-width: 900px) {
+and (max-width: 1000px) {
   h1 {
    font-size: 96px;
    margin: 0 auto;
