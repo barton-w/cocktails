@@ -8,6 +8,7 @@ const lookupEndpoint = "/lookup.php?i=";
 //function that queries the random endpoint and calls displayCocktail with an array of cocktail details
 const getRandCocktails = (num) => {
   for (let i = 0; i < num; i++) {
+    console.log("the loop ran!");
     $.ajax({
       async: false,
       url: baseURL+guid+randomEndpoint
@@ -83,7 +84,15 @@ $(() => {
 
   //event listener for the See More button
   $("#see-more").on("click", (event) => {
-    $("#random").empty();
-    getRandCocktails(4);
+    $("#random").children().fadeOut(500, () => {
+    });
+  });
+
+  //second event listner to delay the getRandCocktails call until after the fadeOut above has run
+  $("#see-more").on("click", (event) => {
+    setTimeout(() => {
+      $("#random").empty();
+      getRandCocktails(4);
+    }, 500);
   });
 });
