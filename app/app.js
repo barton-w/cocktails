@@ -9,9 +9,12 @@ const lookupEndpoint = "/lookup.php?i=";
 const getRandCocktails = (num) => {
   for (let i = 0; i < num; i++) {
     $.ajax({
+      async: false,
       url: baseURL+guid+randomEndpoint
     }).then((cocktail) => {
       displayCocktail(cocktail.drinks[0], "random");
+      console.log(cocktail.drinks[0]);
+      console.log(i);
     }, (error) => {
       console.log(error);
     });
