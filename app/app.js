@@ -11,7 +11,14 @@ const getRandCocktails = (num) => {
     $.ajax({
       url: baseURL+guid+randomEndpoint
     }).then((cocktail) => {
-      displayCocktail(cocktail.drinks[0], "random");
+      // displayCocktail(cocktail.drinks[0], "random");
+      $.ajax({
+        url: baseURL+guid+randomEndpoint
+      }).then((cocktail) => {
+        displayCocktail(cocktail.drinks[0], "random");
+      }, (error) => {
+        console.log(error);
+      });
     }, (error) => {
       console.log(error);
     });

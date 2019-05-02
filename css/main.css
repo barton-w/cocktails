@@ -190,6 +190,13 @@ button:hover, #spirit-submit:hover {
 
 @media only screen
 and (max-width: 1000px) {
+  /* html {
+    background: url("images/cocktail-bar.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: grayscale(80%) blur(4px);
+    z-index: -100; */
   h1 {
    font-size: 96px;
    margin: 0 auto;
