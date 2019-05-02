@@ -13,8 +13,6 @@ const getRandCocktails = (num) => {
       url: baseURL+guid+randomEndpoint
     }).then((cocktail) => {
       displayCocktail(cocktail.drinks[0], "random");
-      console.log(cocktail.drinks[0]);
-      console.log(i);
     }, (error) => {
       console.log(error);
     });
