@@ -21,11 +21,13 @@ const getRandCocktails = (num) => {
 
 //function to receive user input from the form, hit the API's filter endpoint, and call getSearchCocktailDetails with 4 random IDs
 const getSearchCocktails = (value, num) => {
+  $("#error").remove();
   $.ajax({
     url: baseURL+guid+filterEndpoint+value
   }).then((obj) => {
     //In some cases the filter Endpoint returns less than 4 cocktails. In those cases, only display what the API returns, to avoid dupes, otherwise choose 4 randomly from the response
     const cocktailIdArray = [];
+    console.log(obj.drinks.length);
     if (typeof obj.drinks === "undefined") {
       $(".search").append($("<h4>").attr("id", "error").text(`No search-results found for ${value}. Try again with something like gin, vodka, bourbon, scotch, etc.`));
     } else if (obj.drinks.length <= 4) {
@@ -33,8 +35,24 @@ const getSearchCocktails = (value, num) => {
         cocktailIdArray.push(obj.drinks[i].idDrink);
       };
     } else {
+      //dividing the API's response into sections, so when I select 1 item randomly from those sections I don't end up with dupes in cocktailIdArray
+      const divider = Math.floor(obj.drinks.length / num);
       for (let i = 0; i < num; i++) {
-        let position = Math.floor(Math.random()*obj.drinks.length);
+        let position = 0;
+        if (i === 0) {
+          //first time through the loop
+          console.log(i, divider);
+          position = randInt(i, divider);
+        } else if (i+1 === num) {
+          //last time through the loop
+          console.log((divider*i)+1, obj.drinks.length-1);
+          position = randInt((divider*i)+1, obj.drinks.length-1);
+        } else {
+          //every other time through the loop
+          console.log((divider*i)+1, divider*(i+1));
+          position = randInt((divider*i)+1, divider*(i+1));
+        };
+        //const position = Math.floor(Math.random()*obj.drinks.length);
         cocktailIdArray.push(obj.drinks[position].idDrink);
       };
     };
@@ -42,6 +60,11 @@ const getSearchCocktails = (value, num) => {
   }, (error) => {
     console.log(error);
   });
+};
+
+//pulling random-integer within a range into its own function. To be called from getSearchCocktails.
+const randInt = (min, max) => {
+  return Math.floor(Math.random()*(max-min+1)) + min;
 };
 
 //function to loop over the cocktailIdArray and call the lookup endpoint for each Id
