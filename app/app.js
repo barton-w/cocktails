@@ -7,12 +7,19 @@ const lookupEndpoint = "/lookup.php?i=";
 
 //function that queries the random endpoint and calls displayCocktail with an array of cocktail details
 const getRandCocktails = (num) => {
+  const randCocktailDupeCheck = [];
   for (let i = 0; i < num; i++) {
     $.ajax({
       async: false,
       url: baseURL+guid+randomEndpoint
     }).then((cocktail) => {
-      displayCocktail(cocktail.drinks[0], "random");
+      //Adding a check in case the random endpoint returns the same cocktail within the loop; shouldn't get displayed twice.
+      if (randCocktailDupeCheck.includes(cocktail.drinks[0].idDrink)) {
+        console.log("dupe");
+      } else {
+        randCocktailDupeCheck.push(cocktail.drinks[0].idDrink);
+        displayCocktail(cocktail.drinks[0], "random");
+      };
     }, (error) => {
       console.log(error);
     });

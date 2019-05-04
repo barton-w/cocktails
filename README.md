@@ -15,4 +15,4 @@
 * Ingredients and instructions are populated into overlay divs, initially fully-transparent with an opacity transition on hover.
 
 #### Initial Page Wireframe
-![Wireframe](images/cocktails-wireframe.png?raw=true "Title")
+![](https://i.imgur.com/PgKvRdk.png)
