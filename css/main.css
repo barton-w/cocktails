@@ -60,6 +60,15 @@ h3 {
   padding: 1%;
 }
 
+h4 {
+  font-size: 1.2vw;
+  color: #FF3030;
+  margin: 0 auto;
+  background-color: rgba(96,96,96,.5);
+  padding: .5%;
+  width: 50%;
+}
+
 button {
   color: ghostwhite;
   background-color: rgb(98,191,224);
@@ -212,6 +221,14 @@ and (max-width: 1000px) {
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     padding: 1%;
+  }
+  h4 {
+    font-size: 32px;
+    color: #FF3030;
+    margin: 0 auto;
+    background-color: rgba(96,96,96,.5);
+    padding: .5%;
+    width: 100%;
   }
   .cocktail {
     position: relative;
