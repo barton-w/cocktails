@@ -64,7 +64,7 @@ const getSearchCocktails = (value, num) => {
   });
 };
 
-//pulling random-integer within a range into its own function. To be called from getSearchCocktails.
+//function that returns a random-integer within an inclusoive range. To be called from getSearchCocktails, as part of dupe-control.
 const randInt = (min, max) => {
   return Math.floor(Math.random()*(max-min+1)) + min;
 };
