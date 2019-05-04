@@ -27,7 +27,6 @@ const getSearchCocktails = (value, num) => {
   }).then((obj) => {
     //In some cases the filter Endpoint returns less than 4 cocktails. In those cases, only display what the API returns, to avoid dupes, otherwise choose 4 randomly from the response
     const cocktailIdArray = [];
-    console.log(obj.drinks.length);
     if (typeof obj.drinks === "undefined") {
       $(".search").append($("<h4>").attr("id", "error").text(`No search-results found for ${value}. Try again with something like gin, vodka, bourbon, scotch, etc.`));
     } else if (obj.drinks.length <= 4) {
@@ -41,18 +40,14 @@ const getSearchCocktails = (value, num) => {
         let position = 0;
         if (i === 0) {
           //first time through the loop
-          console.log(i, divider);
           position = randInt(i, divider);
         } else if (i+1 === num) {
           //last time through the loop
-          console.log((divider*i)+1, obj.drinks.length-1);
           position = randInt((divider*i)+1, obj.drinks.length-1);
         } else {
           //every other time through the loop
-          console.log((divider*i)+1, divider*(i+1));
           position = randInt((divider*i)+1, divider*(i+1));
         };
-        //const position = Math.floor(Math.random()*obj.drinks.length);
         cocktailIdArray.push(obj.drinks[position].idDrink);
       };
     };
