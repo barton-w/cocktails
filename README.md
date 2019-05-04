@@ -2,9 +2,9 @@
 
 ## Simple application to search for cocktails by spirit and also browse random selections
 
-##https://barton-w.github.io/fancy-booze/
+## https://barton-w.github.io/fancy-booze/
 
-##API - https://www.thecocktaildb.com/api.php
+## API - https://www.thecocktaildb.com/api.php
 
 * On load, the app queries the API's random endpoint multiple times via AJAX with async: false.
 * Each request returns a random cocktail which is parsed and displayed on the random section of the page.

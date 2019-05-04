@@ -8,7 +8,6 @@ const lookupEndpoint = "/lookup.php?i=";
 //function that queries the random endpoint and calls displayCocktail with an array of cocktail details
 const getRandCocktails = (num) => {
   for (let i = 0; i < num; i++) {
-    console.log("the loop ran!");
     $.ajax({
       async: false,
       url: baseURL+guid+randomEndpoint
@@ -25,11 +24,17 @@ const getSearchCocktails = (value, num) => {
   $.ajax({
     url: baseURL+guid+filterEndpoint+value
   }).then((obj) => {
+    //In some cases the filter Endpoint returns less than 4 cocktails. In those cases, only display what the API returns, to avoid dupes, otherwise choose 4 randomly from the response
     const cocktailIdArray = [];
-    //push 4 random cocktail IDs to an array
-    for (let i = 0; i < num; i++) {
-      let position = Math.floor(Math.random()*obj.drinks.length);
-      cocktailIdArray.push(obj.drinks[position].idDrink);
+    if (obj.drinks.length <= 4) {
+      for (let i = 0; i < obj.drinks.length; i++) {
+        cocktailIdArray.push(obj.drinks[i].idDrink);
+      };
+    } else {
+      for (let i = 0; i < num; i++) {
+        let position = Math.floor(Math.random()*obj.drinks.length);
+        cocktailIdArray.push(obj.drinks[position].idDrink);
+      };
     };
     getSearchCocktailDetails(cocktailIdArray);
   }, (error) => {
@@ -84,15 +89,7 @@ $(() => {
 
   //event listener for the See More button
   $("#see-more").on("click", (event) => {
-    $("#random").children().fadeOut(500, () => {
-    });
-  });
-
-  //second event listner to delay the getRandCocktails call until after the fadeOut above has run
-  $("#see-more").on("click", (event) => {
-    setTimeout(() => {
-      $("#random").empty();
-      getRandCocktails(4);
-    }, 500);
+    $("#random").empty();
+    getRandCocktails(4);
   });
 });
